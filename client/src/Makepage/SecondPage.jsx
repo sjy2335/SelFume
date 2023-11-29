@@ -1,12 +1,24 @@
+// SecondPage.jsx
 import React from "react";
 import second from "./둘.png";
 import { useNavigate } from "react-router-dom";
+import { sendCommand } from "./sendCommand"; // Adjust the path based on your project structure
+
 function SecondPage() {
-    const navigate = useNavigate();
-    const handleButtonClick = (buttonNumber) => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = async (buttonNumber) => {
     console.log(`${buttonNumber}번`);
-    navigate("/third")
-    };
+
+    const success = await sendCommand(buttonNumber.toString());
+
+    if (success) {
+      // Navigate to the next page if the command was sent successfully
+      navigate("/third");
+    } else {
+      // Handle error if needed
+    }
+  };
 
   return (
     <div className="firstpagediv">

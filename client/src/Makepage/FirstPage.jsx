@@ -1,11 +1,18 @@
 import React from "react";
 import first from "./하나.png";
 import { useNavigate } from "react-router-dom";
+import { sendCommand } from "./sendCommand";
+
 function FirstPage() {
-    const navigate = useNavigate();
-  const handleButtonClick = (buttonNumber) => {
-    console.log(`${buttonNumber}번`);
-    navigate("/second")
+  const navigate = useNavigate();
+  const handleButtonClick = async (buttonNumber) => {
+    const success = await sendCommand(buttonNumber.toString());
+    if (success) {
+      // Navigate to the next page if the command was sent successfully
+      navigate("/second");
+    } else {
+      // Handle error if needed
+    }
   };
 
   return (
