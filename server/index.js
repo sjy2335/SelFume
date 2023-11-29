@@ -5,7 +5,7 @@ const { SerialPort } = require("serialport");
 
 const app = express();
 const port1 = new SerialPort({ path: "COM7", baudRate: 9600 });
-// const port2 = new SerialPort("COM8", { baudRate: 9600 });
+const port2 = new SerialPort({ path: "COM8", baudRate: 9600 });
 
 // Don't need Parsing with arduino yet.
 // const parser1 = port1.pipe(new Readline({ delimiter: "\n" }));
@@ -24,7 +24,7 @@ app.post("/control", (req, res) => {
 
 function sendCommand(command) {
   port1.write(command);
-  //port2.write(command);
+  port2.write(command);
 }
 
 const server = app.listen(8000, () => {
