@@ -3,7 +3,10 @@ import {Route, Routes} from "react-router-dom";
 import Startpage from "./Startpage/Startpage";
 import WritePage from "./writePage/WritePage";
 import ResultPage from './Resultpage/ResultPage';
-import MakePage from "./Makepage/MakePage";
+
+import FirstPage from "./Makepage/FirstPage";
+import SecondPage from "./Makepage/SecondPage";
+import ThirdPage from "./Makepage/ThirdPage";
 function App() {
   return (
     <div className="App">
@@ -11,8 +14,10 @@ function App() {
         <Route path="/" element={<Startpage/>} />
         <Route path="/story" element={<WritePage/>} />
         <Route path="/result" element={<ResultPage/>} />
-        <Route path="/make" element={<MakePage/>} />
-      
+    
+        <Route path="/first" element={<FirstPage/>} />
+        <Route path="/second" element={<SecondPage/>} />
+        <Route path="/third" element={<ThirdPage/>} />
       </Routes>
     </div>
   );

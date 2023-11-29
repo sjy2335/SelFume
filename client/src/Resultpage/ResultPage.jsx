@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function ResultPage() {
     const navigate = useNavigate();
     const onClick = () => {
-        navigate("/make");
+        navigate("/first");
     }
     return(
         <div className="resultdiv">
@@ -19,6 +19,15 @@ function ResultPage() {
                     </h6>
             </div>
             <div className="resultbtndiv">
+                <div className="reconotice">
+                        <h6 className="reconoticetxt">
+                            BASE 2번 우딘을 추천드려요.
+                            나무향을 통해서 진정된 효과를 받을 수 있을거예요!
+                            <br></br><br></br><br></br>키보드 숫자 키를 이용해, 
+                            <br></br>BASE {">"} MID {">"} TOP 순으로
+                            향료를 선택해주세요.
+                            <br></br>추천 조합은 제작기 LED 조명으로 나타납니다.</h6>
+                </div>
                 <button onClick={onClick} className="resultbtn">🧪 나만의 향수 만들러가기 🧪</button>
             </div>
         </div>
