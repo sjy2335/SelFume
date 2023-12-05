@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to top, rgb(228, 225, 225)  0%, rgb(177, 232, 244) 100%);
+}
+.writepagediv{
+    display: flex;
+    flex-direction: row;
+}
+.writing {
+    text-align: center;
+}
+.writelogo {
+    opacity: 0.2;
+    width: 10vw;
+}
+form {
+    margin-left: 30vw;
+    margin-top: 15vh;
+    background-color: rgb(244, 238, 226, 0.7);
+    border-radius: 20px;
+    width: 38vw;
+    height: 80vh;
+    padding: 10px;
+    border: 3px solid rgb(0,0,0,0.3);
+    box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  form .title {
+    margin-left: 5vw;
+    font-family: 'S-CoreDream-3Light';
+
+    color: #6e6f71;
+    font-size: 20px;
+    margin-top: 3vh;
+  }
+  
+  form .form-control {
+    background-color: #f2f6f8;
+    border-radius: 2rem;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+  }
+  
+  form .form-control.thick {
+    height: 3.3rem;
+    padding: .5rem 3.5rem;
+  }
+  
+  form .form-control:focus {
+    background-color: #f2f6f8;
+    border: none;
+    box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.11);
+  }
+  
+  form .message .form-control {
+    padding: 20px;
+    height: 39vh;
+    font-size: 20px;
+  
+  }
+  
+  form ::placeholder {
+    font-family: 'S-CoreDream-3Light';
+    font-weight: 800;
+    font-size: 18px;
+    color: #838788;
+    position: relative;
+    left: 0px;
+  }
+  
+  form input,
+  form textarea {
+    font-family: 'S-CoreDream-3Light';
+    width: 30vw;
+    padding: 20px;
+    color: #212529;
+    font-size: 12px;
+    margin-top: 3vh;
+  }
+  
+  
+  form .icon {
+    color: #57565c;
+    height: 1.3rem;
+    position: absolute;
+    left: 1.5rem;
+    top: 1.1rem;
+  }
+  
+  .btn.btn-primary {
+    margin-left: 24vw;
+    margin-top: 2vh;
+    font-family: "Raleway", sans-serif;
+    width: 8vw;
+    font-size:18px;
+    height: 5vh;
+    padding: 5px;
+    border: 0;
+    border-radius: 30px;
+    background-image: linear-gradient(rgb(228, 225, 225)  0%, rgb(177, 232, 244) 100%);
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn.btn-primary:hover:enabled {
+    box-shadow: 0 0.5em 0.5em -0.4em #ff923cba;
+    background-size: 100% 100%;
+    transform: translateY(-0.15em);
+  }
+  
