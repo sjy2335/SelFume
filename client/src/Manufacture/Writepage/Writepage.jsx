@@ -10,23 +10,17 @@ export default function Writepage() {
   const [message, setMessage] = useState("");
 
   const onClick = async () => {
-    console.log(nickName,message);
+    console.log(nickName, message);
     try {
-      
       const response = await axios.post("BACKEND_API_ENDPOINT", {
         nickName: nickName,
         message: message,
       });
 
-    
       console.log(response.data);
-
-      
-      
     } catch (error) {
       console.error("Error sending data to the backend:", error);
     }
-
     navigate("/load");
   };
 
@@ -36,8 +30,8 @@ export default function Writepage() {
 
       <form>
         <h1 className="title text-center mb-4">
-          오늘 있었던 일, <br></br>오늘 나의 생각, <br></br> 누군가에게 하고 싶지만
-          못했던 말들을 <br></br> 자유롭게 적어주세요.
+          오늘 있었던 일, <br></br>오늘 나의 생각, <br></br> 누군가에게 하고
+          싶지만 못했던 말들을 <br></br> 자유롭게 적어주세요.
         </h1>
 
         <div className="writing">
@@ -66,11 +60,7 @@ export default function Writepage() {
         </div>
 
         <div className="text-center">
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={onClick}
-          >
+          <button type="button" className="btn btn-primary" onClick={onClick}>
             SAVE
           </button>
         </div>
