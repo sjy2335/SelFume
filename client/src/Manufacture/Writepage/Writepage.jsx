@@ -12,10 +12,13 @@ export default function Writepage() {
   const onClick = async () => {
     console.log(nickName, message);
     try {
-      const response = await axios.post("BACKEND_API_ENDPOINT", {
-        nickName: nickName,
-        message: message,
-      });
+      const response = await axios.post(
+        "https://8071-35-240-253-184.ngrok-free.app/",
+        {
+          nickName: nickName,
+          message: message,
+        }
+      );
 
       console.log(response.data);
     } catch (error) {
