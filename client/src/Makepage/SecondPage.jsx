@@ -6,12 +6,9 @@ import { sendCommand } from "./sendCommand"; // Adjust the path based on your pr
 
 function SecondPage() {
   const navigate = useNavigate();
-
   const handleButtonClick = async (buttonNumber) => {
     console.log(`${buttonNumber}번`);
-
     const success = await sendCommand(buttonNumber.toString());
-
     if (success) {
       // Navigate to the next page if the command was sent successfully
       navigate("/third");
