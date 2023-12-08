@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.Lastpagediv{
+    width: 100%;
+    
+    text-align: center;
+    margin: 0 auto;
+    text-align: center;
+    
+
+}
+.lastmain{
+    margin-left: 8vw;
+    margin-top: 18vh;
+    height: 80vh;
+
+    
+}
+.lasttxtdiv{
+    margin-top: 3vh;
+    margin-left: 25.99vw;
+    width: 38vw;
+    height: 8vh;
+    background-color:rgba(154, 144, 144, 0.3);
+    border-radius: 20px;
+    padding: 10px;
+
+}
+.lastimg{
+    width: 20vw;
+    border-radius: 50px;
+    margin-top: 2vh;
+}
+
+.lasttxt {
+
+    margin-top: 1vh;
+    font-weight: 900;
+    font-family: 'S-CoreDream-3Light';
+}
