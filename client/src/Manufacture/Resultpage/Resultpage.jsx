@@ -2,16 +2,21 @@ import React from "react";
 import styles from "./result.css";
 import Percent from "./Percent";
 import Nav from "../../Nav/Nav";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Resultpage() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const nickName = state ? state.nickName : null;
+  const story = state ? state.story : null;
+  console.log({ nickName }, { story });
   const { emotions, maxEmotion } = useLocation().state || {
     emotions: {},
     maxEmotion: "오류",
   };
-  const onClick = () => {
-    navigate("/make");
+  const onClick = async () => {
+    console.log(nickName, story);
+    navigate("/make", { state: { nickName, story } });
   };
   const emotion = "놀람";
   const ment = "오늘 놀랐던 감정을 차분히 할 수 있도록 도와드릴게요.";

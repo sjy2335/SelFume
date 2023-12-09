@@ -1,10 +1,11 @@
 // Makepage.jsx
+
 import React, { useState, useEffect } from "react";
 import styles from "./make.css";
 import Toggle from "./Toggle";
 import Nav from "../../Nav/Nav";
 import { sendCommand } from "./sendCommand";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate, useLocation } from "react-router-dom";
 
 const COMMANDS_AND_NOTES = {
   0: { command: "3", note: "아로마" },
@@ -24,6 +25,9 @@ export default function Makepage() {
   const [pageTitle, setPageTitle] = useState("Base");
   const [toggleNums, setToggleNums] = useState([0, 1, 2]);
   const navigate = useNavigate(); // Hook for navigation
+  const { state } = useLocation();
+  const nickName = state ? state.nickName : null;
+  const message = state ? state.message : null;
 
   const handleToggleClick = async (clickedNum) => {
     const command = COMMANDS_AND_NOTES[clickedNum]?.command;
@@ -40,7 +44,7 @@ export default function Makepage() {
             setToggleNums((prevNums) => prevNums.map((num) => num + 3));
           } else if (pageTitle === "Top") {
             // Navigate to a new page or component
-            navigate("/last");
+            navigate("/last", { state: { nickName, message } });
           }
         }, 3000);
       } else {

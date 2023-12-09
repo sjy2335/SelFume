@@ -5,13 +5,17 @@ import { useEffect, useState } from "react";
 
 const api_key = process.env.REACT_APP_OPENAI_API_KEY; // <- API KEY 입력
 
+import { useLocation } from "react-router-dom";
 export default function Lastpage() {
   const [loading, setLoading] = useState(false);
   const [responseText, setResponseText] = useState("");
   const [showResponse, setShowResponse] = useState(false);
-  const nickName = "잴림";
-  const story =
-    "오늘은 정말 화가 난 하루였어. 아침부터 모든 것이 잘못됐고, 아무도 내 말을 들어주지 않았어. 나는 내가 중요하다고 느끼고 싶었는데, 주변 사람들은 내 감정을 무시했어. 그래서 나는 소리를 지르고 싶었지만, 그러지 못했어. 이런 무력감과 분노가 나를 괴롭히고 있어."; // Replace with actual story
+
+  const { state } = useLocation();
+  console.log("마지막 페이지 : ", { nickName }, { message });
+
+  const nickName = state ? state.nickName : null;
+  const story = state ? state.message : null;
   const emotion = "분노"; // Replace with actual emotion
   const baseNote = "파츌리";
   const middleNote = "로즈우드";
@@ -92,38 +96,39 @@ export default function Lastpage() {
   const { perfumeName, image, description } = parseResponse(responseText);
 
   return (
-    <div className="Lastpagediv">
+    <div>
       <Nav />
-      <div className="lastmain">
-        <div>
-          <img
-            className="lastimg"
-            src="https://assets-global.website-files.com/5c34b6b890599d7dd2b3f60d/5cad630751e5f8bd0af6889f_bottle%20copy.gif"
-            alt="lastimg"
-          />
-        </div>
-        <div>
-          <div>
-            <h3 className="lasttxt">
-              {nickName}님이 고르신 향료는 {baseNote}, {middleNote}, {topNote}
-              입니다.
-              <br></br>
-              <br></br>향수에 대한 이름을 추천해드릴게요!
-            </h3>
+      <div className="Lastpagediv">
+        <div className="lastmain">
+          <div className="lastmaindiv">
+            <img
+              className="lastimg"
+              src="https://assets-global.website-files.com/5c34b6b890599d7dd2b3f60d/5cad630751e5f8bd0af6889f_bottle%20copy.gif"
+              alt="lastimg"
+            />
+            <div className="choicediv">
+              <h3 className="finish">향수 제작이 완료되었어요!</h3>
+              <h3 className="choicetxt">
+                Base : {baseNote}
+                <br></br>
+                Mid : {middleNote}
+                <br></br>
+                TOP : {topNote}
+              </h3>
+              <h3 className="nickgo">
+                {nickName}에게 향수 이름을 추천해드릴게요!
+              </h3>
+            </div>
           </div>
-          {showResponse && (
-            <>
-              <div className="lasttxtdiv">
-                <h4 className="lasttxt">향수 이름: {perfumeName}</h4>
-              </div>
-              <div className="lasttxtdiv">
-                <h2 className="lasttxt">어울리는 이미지: {image}</h2>
-              </div>
-              <div className="lasttxtdiv">
-                <div className="lasttxt">설명과 감정 연결: {description}</div>
-              </div>
-            </>
-          )}
+          <div>
+            <div className="lasttxtdiv">
+              <h2 className="lasttxt">" {perfumeName} "</h2>
+            </div>
+            <div className="perfumetxtdiv">
+              <h5 className="perfumetxt">{image}</h5>
+              <h5 className="perfumetxt">{description}</h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>

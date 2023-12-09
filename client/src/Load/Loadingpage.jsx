@@ -1,23 +1,28 @@
-import React from "react";
+// LoadPage.jsx
+
+import React, { useEffect } from "react";
 import Load from "./load.gif";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./load.css";
+
 export default function Loadingpage() {
   const navigate = useNavigate();
-  const { emotions, maxEmotion } = useLocation().state || {
+  const { emotions, maxEmotion, nickName, story } = useLocation().state || {
+    nickName: "default",
+    story: "default",
     emotions: {},
-    maxEmotion: "오류",
+    maxEmotion: "default",
   };
   useEffect(() => {
     // 3초 후에 navigate("/result") 호출
     const timeoutId = setTimeout(() => {
-      navigate("/result", { state: { emotions, maxEmotion } });
+      navigate("/result", { state: { nickName, story, emotions, maxEmotion } });
     }, 3000);
 
     // 컴포넌트가 언마운트되면 타이머 해제
     return () => clearTimeout(timeoutId);
-  }, [navigate]);
+  }, [navigate, nickName, story, emotions, maxEmotion]);
 
   return (
     <div className="loadresultpage">

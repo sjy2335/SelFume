@@ -7,30 +7,22 @@ import { useNavigate } from "react-router-dom";
 export default function Writepage() {
   const navigate = useNavigate();
   const [nickName, setNickName] = useState("");
-  const [message, setMessage] = useState("");
+  const [story, setStory] = useState("");
 
-  const onClick = async (e) => {
-    // Make API call to predict emotion
-    // Server-side code에 넣는 게 나을 것 같기도 한데.. 흠
-    e.preventDefault();
+  const onClick = async () => {
+    console.log(nickName, story);
     try {
-      const response = await axios.post(
-        "https://8071-35-240-253-184.ngrok-free.app/predict-emotion",
-        {
-          sentence: message,
-        }
-      );
-      // Extract emotion from the response
-      const emotions = response.data.result;
-      // Navigate to the result page with emotion as a parameter
-      let maxEmotion = Object.keys(emotions).reduce((a, b) =>
-        emotions[a] > emotions[b] ? a : b
-      );
+      const response = await axios.post("BACKEND_API_ENDPOINT", {
+        nickName: nickName,
+        story: story,
+      });
 
-      navigate("/load", { state: { emotions, maxEmotion } });
+      console.log(response.data);
     } catch (error) {
       console.error("Error predicting emotion:", error);
     }
+
+    navigate("/load", { state: { nickName, story } });
   };
 
   return (
@@ -63,7 +55,7 @@ export default function Writepage() {
               className="form-control form-control-lg"
               rows="7"
               placeholder="자유롭게 적어주세요"
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => setStory(e.target.value)}
             ></textarea>
           </div>
         </div>
