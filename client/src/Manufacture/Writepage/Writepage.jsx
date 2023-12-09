@@ -9,22 +9,28 @@ export default function Writepage() {
   const [nickName, setNickName] = useState("");
   const [message, setMessage] = useState("");
 
-  const onClick = async () => {
-    console.log(nickName, message);
+  const onClick = async (e) => {
+    // Make API call to predict emotion
+    // Server-side code에 넣는 게 나을 것 같기도 한데.. 흠
+    e.preventDefault();
     try {
       const response = await axios.post(
-        "https://8071-35-240-253-184.ngrok-free.app/",
+        "https://8071-35-240-253-184.ngrok-free.app/predict-emotion",
         {
-          nickName: nickName,
-          message: message,
+          sentence: message,
         }
       );
+      // Extract emotion from the response
+      const emotions = response.data.result;
+      // Navigate to the result page with emotion as a parameter
+      let maxEmotion = Object.keys(emotions).reduce((a, b) =>
+        emotions[a] > emotions[b] ? a : b
+      );
 
-      console.log(response.data);
+      navigate("/load", { state: { emotions, maxEmotion } });
     } catch (error) {
-      console.error("Error sending data to the backend:", error);
+      console.error("Error predicting emotion:", error);
     }
-    navigate("/load");
   };
 
   return (
