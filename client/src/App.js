@@ -5,6 +5,7 @@ import Writepage from "./Manufacture/Writepage/Writepage";
 import Loadingpage from "./Load/Loadingpage";
 import Resultpage from "./Manufacture/Resultpage/Resultpage";
 import Makepage from "./Manufacture/Makepage/Makepage";
+import Lastpage from "./Lastpage/Lastpage";
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
         <Route path="/load" element={<Loadingpage/>} />
         <Route path="/result" element={<Resultpage/>} />
         <Route path="/make" element={<Makepage/>} />
+        <Route path="/last" element={<Lastpage/>} />
       </Routes>
     </div>
   );
