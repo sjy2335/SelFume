@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import styles from "./write.css";
 import Nav from "../../Nav/Nav";
@@ -10,24 +11,21 @@ export default function Writepage() {
   const [message, setMessage] = useState("");
 
   const onClick = async () => {
-    console.log(nickName,message);
+    console.log(nickName, message);
     try {
-      
       const response = await axios.post("BACKEND_API_ENDPOINT", {
         nickName: nickName,
         message: message,
       });
 
-    
       console.log(response.data);
 
-      
-      
+      // Pass nickName and message as state to the /load page
+     
     } catch (error) {
       console.error("Error sending data to the backend:", error);
     }
-
-    navigate("/load");
+    navigate("/load", { state: { nickName, message } });
   };
 
   return (
@@ -71,7 +69,7 @@ export default function Writepage() {
             className="btn btn-primary"
             onClick={onClick}
           >
-            SAVE
+            저장
           </button>
         </div>
       </form>

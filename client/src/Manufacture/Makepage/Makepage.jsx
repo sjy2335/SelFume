@@ -1,14 +1,19 @@
-// Makepage.jsx
-
 import React, { useState, useEffect } from "react";
 import styles from "./make.css";
 import Toggle from "./Toggle";
 import Nav from "../../Nav/Nav";
+import { useNavigate, useLocation } from "react-router-dom";
 export default function Makepage() {
   const [pageTitle, setPageTitle] = useState("Base");
   const [toggleNums, setToggleNums] = useState([0, 1, 2]);
   const [toggleNames, setToggleNames] = useState(["아로마", "머스크", "우디"]);
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const nickName = state ? state.nickName : null;
+  const message = state ? state.message : null;
+ 
 
+     
   const handleToggleClick = (clickedNum) => {
     // 3초 후에 실행되는 함수
     setTimeout(() => {
@@ -20,6 +25,12 @@ export default function Makepage() {
         setPageTitle("Top");
         setToggleNums((prevNums) => prevNums.map((num) => num + 3));
         setToggleNames(["플로럴", "레몬", "프루티"]);
+        
+        // After 3 seconds when pageTitle is 'Top', navigate to /last
+        setTimeout(() => {
+          console.log({nickName},{message})
+          navigate("/last", { state: { nickName, message } });
+        }, 3000);
       }
     }, 3000);
   };
@@ -40,3 +51,4 @@ export default function Makepage() {
     
   );
 }
+

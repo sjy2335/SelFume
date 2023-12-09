@@ -2,13 +2,20 @@ import React from "react";
 import styles from "./result.css";
 import Percent from "./Percent";
 import Nav from "../../Nav/Nav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Resultpage(){
     const navigate= useNavigate();
-    const onClick=() => {
-        navigate("/make");
-    }
+    const { state } = useLocation();
+    const nickName = state ? state.nickName : null;
+    const message = state ? state.message : null;
+    console.log({nickName},{message})
+
+    const onClick = async () => {
+        console.log(nickName, message);
+        navigate("/make", { state: { nickName, message } });
+      };
+   
     const emotion ="놀람";
     const ment = "오늘 놀랐던 감정을 차분히 할 수 있도록 도와드릴게요.";
     const base = "아로마 base 2"
