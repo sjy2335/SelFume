@@ -1,95 +1,100 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "S-CoreDream-3Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'KimjungchulMyungjo-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "KimjungchulMyungjo-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 
-.Lastpagediv{
-    width: 100%;
-    margin-top: 15vh;
-    text-align: center;
-    margin: 0 auto;
-    text-align: center;
-    
-
+.Lastpagediv {
+  width: 100%;
+  margin-top: 15vh;
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-left: -10vw;
 }
-.lastmain{
-    margin-left: 8vw;
-    margin-top: 18vh;
-    height: 80vh;
-
-    
+.lastmain {
+  margin-left: 15vw;
+  margin-top: 18vh;
+  height: 80vh;
 }
-.lastmaindiv{
-    display: flex;
-    flex-direction:  row;
+.lastmaindiv {
+  display: flex;
+  flex-direction: row;
 }
-.lasttxtdiv{
-    margin-top: 3vh;
-    margin-left: 25.99vw;
-    width: 38vw;
-    height: 8vh;
-    background-color:rgba(190, 190, 190, 0.3);
-    border-radius: 20px;
-    padding: 10px;
-
+.lasttxtdiv {
+  margin-top: 3vh;
+  margin-left: 25.99vw;
+  width: 38vw;
+  height: 8vh;
+  background-color: rgba(190, 190, 190, 0.3);
+  border-radius: 20px;
+  padding: 10px;
 }
-.lastimg{
-    width: 20vw;
-    border-radius: 50px;
-    margin-top: 2vh;
+.lastimg {
+  width: 20vw;
+  border-radius: 50px;
+  margin-top: 2vh;
 }
 
 .lasttxt {
-
-    margin-top: 1vh;
-    font-weight: 900;
-    font-family: 'S-CoreDream-3Light';
+  margin-top: 1vh;
+  font-weight: 900;
+  font-family: "S-CoreDream-3Light";
 }
-.perfumetxtdiv{
-    width: 50vw;
-    height: 20vh;
-    padding: 30px;
-    background-color: rgb(255,255,255,0.5);
-    border-radius: 20px;
-    margin-top: 3vh;
-    margin-left: 20vw;
-}
-.perfumetxt{
 
-    font-size: 18px;
+.perfumetxtdiv {
+  width: 50vw;
+  height: 20vh;
+  padding: 20px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 20px;
+  margin-top: 3vh;
+  margin-left: 20vw;
+  overflow: hidden;
+}
+
+.perfumetxt {
+  text-align: left;
+  font-size: 18px;
 }
 
 .choicetxt {
-    font-family: "Raleway", sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    margin-top: 2vh;
-    color: rgb(26, 26, 125);
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  margin-top: 2vh;
+  color: rgb(26, 26, 125);
 }
 
-.choicediv{
-    margin-top: 20vh;
-    margin-left: 5vw;
+.choicediv {
+  margin-top: 20vh;
+  margin-left: 5vw;
 }
-.lastmaindiv{
-    margin-left: 20vw;
-    margin-top: 3vh;
+.lastmaindiv {
+  margin-left: 20vw;
+  margin-top: 3vh;
 }
 
 .nickgo {
-    color: rgb(74, 74, 103);
-    margin-top: 2vh;
+  color: rgb(74, 74, 103);
+  margin-top: 2vh;
 }
-.finish{
-    color: rgb(74, 74, 103);
-    margin-top: -10vh;
+.finish {
+  color: rgb(74, 74, 103);
+  margin-top: -10vh;
+}
+
+.perfumetxtdiv img {
+  width: auto;
+  height: 100%;
 }

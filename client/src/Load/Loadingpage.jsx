@@ -15,7 +15,7 @@ export default function Loadingpage() {
     // 3초 후에 navigate("/result") 호출
     const timeoutId = setTimeout(() => {
       navigate("/result", { state: { nickName, story, emotions, maxEmotion } });
-    }, 3000);
+    }, 2000);
 
     // 컴포넌트가 언마운트되면 타이머 해제
     return () => clearTimeout(timeoutId);

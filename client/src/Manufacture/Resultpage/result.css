@@ -1,103 +1,118 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "S-CoreDream-3Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'KimjungchulMyungjo-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "KimjungchulMyungjo-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 
 /*percent 조절*/
-.resultpagediv{
-    display: flex;
-    flex-direction: row;
-    margin-top: 20vh;
-    margin-left: 3vw;
-
+.resultpagediv {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20vh;
+  margin-left: 3vw;
 }
 
-
-.percent{
-    display: flex;
-    flex-direction: row;
-    padding: 7px;
-
-}
-.what{
-    font-size: 18px;
-    margin-left: 3vw;
-    font-family: 'S-CoreDream-3Light'!important;
+.percent {
+  display: flex;
+  flex-direction: row;
+  padding: 7px;
 }
 
-.out{
-    background-color: rgb(255, 255, 255);
-    width: 30vw;
-    height: 3.9vh;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid rgb(0,0,0,0.1);
+.what {
+  font-size: 18px;
+  margin-left: 3vw;
+  font-family: "S-CoreDream-3Light" !important;
 }
-.in{
-    margin-top: -1vh;
-    background-color: rgb(0,0,0,0.2);
-    border: 2px solid rgb(0,0,0,0.1);
-    height: 3vh;
-    border-radius: 10px;
+
+.out {
+  background-color: rgb(255, 255, 255);
+  width: 30vw;
+  height: 3.9vh;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(0, 0, 0, 0.1);
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+.in {
+  margin-top: -1vh;
+  background-color: rgb(0, 0, 0, 0.2);
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  height: 3vh;
+  border-radius: 10px;
+  max-width: 100%;
+
+  animation-name: fillBar;
+  animation-duration: 2s; /* Duration of the animation */
+  animation-fill-mode: forwards; /* Keeps the state at the end of the animation */
 }
 
 /*result*/
 
-.emotion{
-    height: 75vh;
-    padding: 30px;
-    background-color:rgb(255,255,255,0.59);
-    width: 50vw;
-    margin-top: 2vh;
-    text-align: center;
-    border-radius: 30px;
+.emotion {
+  height: 75vh;
+  padding: 30px;
+  background-color: rgb(255, 255, 255, 0.59);
+  width: 50vw;
+  margin-top: 2vh;
+  text-align: center;
+  border-radius: 30px;
 }
-.emotion-notice{
-    color : rgb(0,0,0,0.5);
-    margin-top: 2vh;
-    font-size: 18px;
-    font-family: 'S-CoreDream-3Light'!important;
+.emotion-notice {
+  color: rgb(0, 0, 0, 0.5);
+  margin-top: 2vh;
+  font-size: 18px;
+  font-family: "S-CoreDream-3Light" !important;
 }
-.emotion-notice-last{
-    color: rgb(86, 149, 170);
-    margin-top: 2vh;
-    font-size: 24px;
-    font-family: 'S-CoreDream-3Light'!important;
+.emotion-notice-last {
+  color: rgb(86, 149, 170);
+  margin-top: 2vh;
+  font-size: 24px;
+  font-family: "S-CoreDream-3Light" !important;
 }
-.percentarray{
-    margin-left: 3vw;
-    display: flex;
-    flex-direction: column;
-    margin-top: 15vh;
-    }
+.percentarray {
+  margin-left: 3vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15vh;
+}
 
-.emoimg{
-    width: 20vw;
-    border-radius: 50%;
-    margin-top: 5vh;
+.emoimg {
+  width: 20vw;
+  border-radius: 50%;
+  margin-top: 5vh;
 }
 
 .makebtn {
-    font-family: 'S-CoreDream-3Light'!important;
-    width: 10vw;
-    height: 5vh;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 2px solid white;
-    opacity: 70%;
-    margin-top: 3vh;
-    margin-left: 15vw;
+  font-family: "S-CoreDream-3Light" !important;
+  width: 10vw;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  opacity: 70%;
+  margin-top: 3vh;
+  margin-left: 15vw;
 }
 
-.makebtn:hover{
-    background-color: rgb(243, 218, 144);
+.makebtn:hover {
+  background-color: rgb(243, 218, 144);
 }

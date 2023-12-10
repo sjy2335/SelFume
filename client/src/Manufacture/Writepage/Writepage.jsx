@@ -9,24 +9,24 @@ export default function Writepage() {
   const [nickName, setNickName] = useState("");
   const [story, setStory] = useState("");
 
-  const onClick = async () => {
+  const onClick = async (e) => {
+    e.preventDefault();
     console.log(nickName, story);
-    let emotions = { emotion1: 0, emotion2: 0 }; // Default emotions
-    let maxEmotion = "neutral"; // Default maximum emotion
+    let emotions = {}; // Default emotions
+    let maxEmotion = ""; // Default maximum emotion
 
     try {
       const response = await axios.post(
-        "https://8071-35-240-253-184.ngrok-free.app/predict-emotion",
+        "https://65aa-34-31-179-228.ngrok-free.app/predict-emotion",
         {
-          story: story,
+          sentence: story,
         }
       );
 
-      console.log(response.data);
-      if (response.data && response.data.emotions && response.data.maxEmotion) {
-        emotions = response.data.emotions;
-        maxEmotion = response.data.maxEmotion;
-      }
+      emotions = response.data.result;
+      maxEmotion = Object.keys(emotions).reduce((a, b) =>
+        emotions[a] > emotions[b] ? a : b
+      );
     } catch (error) {
       console.error("Error predicting emotion:", error);
       // Using default values

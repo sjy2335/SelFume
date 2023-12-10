@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./make.css";
 
 export default function Toggle(props) {
-  const { num, text, isSelected, onClick } = props;
+  const { num, name, isSelected, onClick } = props;
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,9 @@ export default function Toggle(props) {
     <div>
       <section className="light">
         <div
-          className={`circle ${isActive ? 'active' : ''} ${isSelected ? 'selected' : ''}`}
+          className={`circle ${isActive ? "active" : ""} ${
+            isSelected ? "selected" : ""
+          }`}
           onClick={toggleActive}
         >
           <p className="circlename">{props.name}</p>

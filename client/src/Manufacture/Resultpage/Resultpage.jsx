@@ -10,41 +10,71 @@ export default function Resultpage() {
 
   const nickName = state ? state.nickName : null;
   const story = state ? state.story : null;
-  console.log({ nickName }, { story });
+  const emotions = state ? state.emotions : null;
+  const maxEmotion = state ? state.maxEmotion : null;
 
-  const { emotions, maxEmotion } = useLocation().state || {
-    emotions: {},
-    maxEmotion: "default",
+  console.log(emotions, maxEmotion);
+  const emotionsData = {
+    불안: {
+      ment: "불안한 마음을 진정시켜 줄",
+      base: "파츌리",
+      img: "https://cdn1.iconfinder.com/data/icons/emojis-3d-classic/512/fear.png", // Replace with actual file name
+    },
+    분노: {
+      ment: "분노를 가라앉힐 수 있는",
+      base: "아로마 base B",
+      img: "https://cdn1.iconfinder.com/data/icons/emojis-3d-classic/512/fury.png", // Replace with actual file name
+    },
+    상처: {
+      ment: "마음의 상처를 치유하는 데 도움이 되는",
+      base: "아로마 base C",
+      img: "https://cdn2.iconfinder.com/data/icons/3d-emoji-1/512/Emoji___emoticon_emoji_sticker_face_bored_speechless_right2x.png", // Replace with actual file name
+    },
+    슬픔: {
+      ment: "슬픔을 달래줄 위로의",
+      base: "아로마 base D",
+      img: "https://cdn2.iconfinder.com/data/icons/3d-emoji-1/512/Emoji___emoticon_emoji_sticker_face_sad_unhappy_cry_center2x.png", // Replace with actual file name
+    },
+    당황: {
+      ment: "당황스러운 상황을 잘 처리할 수 있는",
+      base: "아로마 base E",
+      img: "https://cdn2.iconfinder.com/data/icons/3d-emoji-1/512/Emoji___emoticon_emoji_sticker_face_embarressed_kidding_laugh_left2x.png", // Replace with actual file name
+    },
+    기쁨: {
+      ment: "기쁨을 더욱 배가시킬 수 있는 긍정적인",
+      base: "아로마 base F",
+      img: "https://cdn1.iconfinder.com/data/icons/emojis-3d-classic/512/happy.png", // Replace with actual file name
+    },
   };
 
   const onClick = async () => {
-    console.log(nickName, story);
+    console.log(nickName, story, maxEmotion);
     navigate("/make", { state: { nickName, story, emotion: maxEmotion } });
   };
 
-  const emotion = "놀람";
-  const ment = "오늘 놀랐던 감정을 차분히 할 수 있도록 도와드릴게요.";
-  const base = "아로마 base 2";
+  const emotionData = emotionsData[maxEmotion] || {
+    ment: "기본 메시지입니다.",
+    img: "default.jpg", // Default image URL
+    base: "기본 아로마 base",
+  };
 
   return (
     <div>
       <div>
         <Nav />
       </div>
-
       <div className="resultpagediv">
         <div className="emotion">
           <h5 className="emotion-notice">
             감정 분석결과, 당신이 느낀 감정은 "{maxEmotion}"입니다.<br></br>
-            {ment}
+            {emotionData.ment} 향기를 드릴게요.
             <br></br>
           </h5>
-          <h5 className="emotion-notice-last">{base}를 추천드려요!</h5>
+          <h5 className="emotion-notice-last">
+            {emotionData.base}를 추천드려요!
+          </h5>
           <div>
-            <img
-              className="emoimg"
-              src="https://thumbs.dreamstime.com/b/smile-surprise-upset-emotion-29434452.jpg"
-            />
+            <img className="emoimg" src={emotionData.img} />
           </div>
         </div>
 

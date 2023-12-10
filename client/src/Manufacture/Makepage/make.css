@@ -1,100 +1,136 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "S-CoreDream-3Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'KimjungchulMyungjo-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+  font-family: "KimjungchulMyungjo-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 .Makepagediv {
-    
-    font-size: 20px;
-    
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
+  font-size: 20px;
+
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
 
 .section.light {
-    
-    display: flex;
-    width: 50vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #e0e5ec;
-  }
-
-  div.circle {
-    margin-left: 5vw;
-    position: relative;
-    display: flex;
-    width: 250px;
-    height: 250px;
-    border-radius: 150px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  div.circle:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 250px;
-    height: 250px;
-    content: " ";
-    cursor: pointer;
-    transition: 0.3s ease-out;
-    border-radius: 150px;
-    filter: blur(7px);
-    box-shadow: 8px 8px 20px #a9a8b7, -8px -8px 20px #fff;
-  }
-
-  div.circle.active:before {
-    box-shadow: 8px 8px 20px #a9a8b7, -8px -8px 20px #fff,
-      inset -8px -8px 20px #fff, inset 8px 8px 20px #a9a8b7;
-  }
-
-  div.circle.active:before {
-    transition: 0.3s ease-in;
-    transform: scale(1.05);
-  }
-
-  div.circle p p {
-    position: relative;
-    z-index: 5;
-    user-select: none;
-  }
-.Makepagediv{
-    display: flex;
-    flex-direction: column;
-
-}
-.togglearray{
-    display: flex;
-    flex-direction: row;
-    margin-top: -10vh;
-    margin-left: -5vw;
-  }
-.togglename{
-    font-family: "Raleway", sans-serif;
-    font-weight: 900;
-}
-.circlename{
-    font-family: 'S-CoreDream-3Light';
-    font-size: 900;
+  display: flex;
+  width: 50vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e0e5ec;
 }
 
+div.circle {
+  margin-left: 5vw;
+  position: relative;
+  display: flex;
+  width: 250px;
+  height: 250px;
+  border-radius: 150px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+div.circle:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 250px;
+  height: 250px;
+  content: " ";
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  border-radius: 150px;
+  filter: blur(7px);
+  box-shadow: 8px 8px 20px #a9a8b7, -8px -8px 20px #fff;
+}
+
+div.circle.active:before {
+  box-shadow: 8px 8px 20px #a9a8b7, -8px -8px 20px #fff,
+    inset -8px -8px 20px #fff, inset 8px 8px 20px #a9a8b7;
+}
+
+div.circle.active:before {
+  transition: 0.3s ease-in;
+  transform: scale(1.05);
+}
+
+div.circle p p {
+  position: relative;
+  z-index: 5;
+  user-select: none;
+}
+.Makepagediv {
+  display: flex;
+  flex-direction: column;
+}
+.togglearray {
+  display: flex;
+  flex-direction: row;
+  margin-top: -10vh;
+  margin-left: -5vw;
+}
+.togglename {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+}
+.circlename {
+  font-family: "S-CoreDream-3Light";
+  font-size: 900;
+}
+
+.togglearray.animate-out {
+  animation: slideUpFadeOut 1s forwards;
+}
+
+.togglearray.animate-in {
+  animation: fadeIn 1s forwards;
+}
+
+.togglename.animate-out {
+  animation: slideUpFadeOut 1s forwards;
+}
+
+.togglename.animate-in {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes slideUpFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-250%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(250%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

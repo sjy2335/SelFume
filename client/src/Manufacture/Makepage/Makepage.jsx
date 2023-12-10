@@ -24,31 +24,51 @@ const COMMANDS_AND_NOTES = {
 export default function Makepage() {
   const [pageTitle, setPageTitle] = useState("Base");
   const [toggleNums, setToggleNums] = useState([0, 1, 2]);
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
   const { state } = useLocation();
   const nickName = state ? state.nickName : null;
   const story = state ? state.story : null;
   const emotion = state ? state.emotion : null;
 
+  const [selectedNotes, setSelectedNotes] = useState([]);
+
+  const [isFadingIn, setIsFadingIn] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+
   const handleToggleClick = async (clickedNum) => {
     const command = COMMANDS_AND_NOTES[clickedNum]?.command;
+    const note = COMMANDS_AND_NOTES[clickedNum]?.note;
+
     if (command) {
-      const success = true; //await sendCommand(command);
-      if (success) {
-        // 3초 후에 실행되는 함수
-        setTimeout(() => {
-          if (pageTitle === "Base") {
-            setPageTitle("Mid");
-            setToggleNums((prevNums) => prevNums.map((num) => num + 3));
-          } else if (pageTitle === "Mid") {
-            setPageTitle("Top");
-            setToggleNums((prevNums) => prevNums.map((num) => num + 3));
-          } else if (pageTitle === "Top") {
-            // Navigate to a new page or component
-            navigate("/last", { state: { nickName, story, emotion } });
-          }
-        }, 1000);
-      } else {
+      const success = true;
+      await sendCommand(command);
+      setIsFadingOut(true);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsFadingOut(false);
+
+      setSelectedNotes((prevNotes) => {
+        const newNotes = [...prevNotes, note];
+
+        if (pageTitle === "Base") {
+          setPageTitle("Mid");
+          setToggleNums([3, 4, 5]);
+        } else if (pageTitle === "Mid") {
+          setPageTitle("Top");
+          setToggleNums([6, 7, 8]);
+        } else if (pageTitle === "Top") {
+          // Ensure navigation occurs after state update
+          navigate("/last", {
+            state: { nickName, story, emotion, selectedNotes: newNotes },
+          });
+        }
+
+        return newNotes;
+      });
+
+      setIsFadingIn(true); // Start fade-in animation
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsFadingIn(false); // Reset fade-in animation state
+      if (!success) {
         // error handling
       }
     }
@@ -58,8 +78,18 @@ export default function Makepage() {
     <div>
       <Nav />
       <div className="Makepagediv">
-        <h1 className="togglename">{pageTitle}</h1>
-        <div className="togglearray">
+        <h1
+          className={`togglename ${isFadingIn ? "animate-in" : ""} ${
+            isFadingOut ? "animate-out" : ""
+          }`}
+        >
+          {pageTitle}
+        </h1>{" "}
+        <div
+          className={`togglearray ${isFadingIn ? "animate-in" : ""} ${
+            isFadingOut ? "animate-out" : ""
+          }`}
+        >
           {toggleNums.map((num) => (
             <Toggle
               key={num}
