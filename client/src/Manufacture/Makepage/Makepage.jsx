@@ -27,12 +27,13 @@ export default function Makepage() {
   const navigate = useNavigate(); // Hook for navigation
   const { state } = useLocation();
   const nickName = state ? state.nickName : null;
-  const message = state ? state.message : null;
+  const story = state ? state.story : null;
+  const emotion = state ? state.emotion : null;
 
   const handleToggleClick = async (clickedNum) => {
     const command = COMMANDS_AND_NOTES[clickedNum]?.command;
     if (command) {
-      const success = await sendCommand(command);
+      const success = true; //await sendCommand(command);
       if (success) {
         // 3초 후에 실행되는 함수
         setTimeout(() => {
@@ -44,9 +45,9 @@ export default function Makepage() {
             setToggleNums((prevNums) => prevNums.map((num) => num + 3));
           } else if (pageTitle === "Top") {
             // Navigate to a new page or component
-            navigate("/last", { state: { nickName, message } });
+            navigate("/last", { state: { nickName, story, emotion } });
           }
-        }, 3000);
+        }, 1000);
       } else {
         // error handling
       }

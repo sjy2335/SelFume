@@ -11,18 +11,27 @@ export default function Writepage() {
 
   const onClick = async () => {
     console.log(nickName, story);
+    let emotions = { emotion1: 0, emotion2: 0 }; // Default emotions
+    let maxEmotion = "neutral"; // Default maximum emotion
+
     try {
-      const response = await axios.post("BACKEND_API_ENDPOINT", {
-        nickName: nickName,
-        story: story,
-      });
+      const response = await axios.post(
+        "https://8071-35-240-253-184.ngrok-free.app/predict-emotion",
+        {
+          story: story,
+        }
+      );
 
       console.log(response.data);
+      if (response.data && response.data.emotions && response.data.maxEmotion) {
+        emotions = response.data.emotions;
+        maxEmotion = response.data.maxEmotion;
+      }
     } catch (error) {
       console.error("Error predicting emotion:", error);
+      // Using default values
     }
-
-    navigate("/load", { state: { nickName, story } });
+    navigate("/load", { state: { nickName, story, emotions, maxEmotion } });
   };
 
   return (

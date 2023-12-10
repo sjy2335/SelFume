@@ -1,22 +1,25 @@
 import React from "react";
 import styles from "./last.css";
 import Nav from "../Nav/Nav";
+import Load from "./loading.gif";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const api_key = process.env.REACT_APP_OPENAI_API_KEY; // <- API KEY 입력
 
-import { useLocation } from "react-router-dom";
 export default function Lastpage() {
   const [loading, setLoading] = useState(false);
   const [responseText, setResponseText] = useState("");
   const [showResponse, setShowResponse] = useState(false);
 
   const { state } = useLocation();
-  console.log("마지막 페이지 : ", { nickName }, { message });
 
   const nickName = state ? state.nickName : null;
-  const story = state ? state.message : null;
-  const emotion = "분노"; // Replace with actual emotion
+  const story = state ? state.story : null;
+  const emotion = state ? state.emotion : null;
+
+  console.log("마지막 페이지 : ", { nickName }, { story });
+
   const baseNote = "파츌리";
   const middleNote = "로즈우드";
   const topNote = "블랙베리";
@@ -120,15 +123,29 @@ export default function Lastpage() {
               </h3>
             </div>
           </div>
-          <div>
-            <div className="lasttxtdiv">
-              <h2 className="lasttxt">" {perfumeName} "</h2>
+
+          {loading ? (
+            // Display loading indicator when loading is true
+            <div className="loading-div">
+              <h3 className="nickgo">
+                향수 이름 로딩 중.. 조금만 기다려 주세요!
+              </h3>
+              <div className="loadresultpage">
+                <img src={Load} alt="loadimg" className="loading" />
+              </div>
             </div>
-            <div className="perfumetxtdiv">
-              <h5 className="perfumetxt">{image}</h5>
-              <h5 className="perfumetxt">{description}</h5>
-            </div>
-          </div>
+          ) : (
+            // Display perfume details when loading is false
+            <>
+              <div className="lasttxtdiv">
+                <h2 className="lasttxt">" {perfumeName} "</h2>
+              </div>
+              <div className="perfumetxtdiv">
+                <h5 className="perfumetxt">{image}</h5>
+                <h5 className="perfumetxt">{description}</h5>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

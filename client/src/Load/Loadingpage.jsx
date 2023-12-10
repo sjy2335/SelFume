@@ -1,14 +1,11 @@
-// LoadPage.jsx
-
 import React, { useEffect } from "react";
 import Load from "./load.gif";
-import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./load.css";
 
 export default function Loadingpage() {
   const navigate = useNavigate();
-  const { emotions, maxEmotion, nickName, story } = useLocation().state || {
+  const { nickName, story, emotions, maxEmotion } = useLocation().state || {
     nickName: "default",
     story: "default",
     emotions: {},
