@@ -1,6 +1,4 @@
-// Makepage.jsx
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./make.css";
 import Toggle from "./Toggle";
 import Nav from "../../Nav/Nav";
@@ -35,42 +33,46 @@ export default function Makepage() {
   const [isFadingIn, setIsFadingIn] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
-  const handleToggleClick = async (clickedNum) => {
+  const handleToggleClick =  async (clickedNum) => {
     const command = COMMANDS_AND_NOTES[clickedNum]?.command;
     const note = COMMANDS_AND_NOTES[clickedNum]?.note;
 
     if (command) {
       const success = true;
       await sendCommand(command);
-      setIsFadingOut(true);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsFadingOut(false);
+      
+      
 
       setSelectedNotes((prevNotes) => {
         const newNotes = [...prevNotes, note];
 
-        if (pageTitle === "Base") {
-          setPageTitle("Mid");
-          setToggleNums([3, 4, 5]);
-        } else if (pageTitle === "Mid") {
-          setPageTitle("Top");
-          setToggleNums([6, 7, 8]);
-        } else if (pageTitle === "Top") {
-          // Ensure navigation occurs after state update
-          navigate("/last", {
-            state: { nickName, story, emotion, selectedNotes: newNotes },
-          });
-        }
+        
 
         return newNotes;
       });
 
-      setIsFadingIn(true); // Start fade-in animation
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsFadingIn(false); // Reset fade-in animation state
       if (!success) {
         // error handling
       }
+    }
+  };
+
+  const handleNextButtonClick = async () => {
+    let newNotes = selectedNotes; // 현재까지 선택된 노트들을 복사
+    setIsFadingIn(true);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    setIsFadingIn(false);
+    if (pageTitle === "Base") {
+      
+      setPageTitle("Mid");
+      setToggleNums([3, 4, 5]);
+    } else if (pageTitle === "Mid") {
+      setPageTitle("Top");
+      setToggleNums([6, 7, 8]);
+    } else if (pageTitle === "Top") {
+      navigate("/last", {
+        state: { nickName, story, emotion, selectedNotes: newNotes },
+      });
     }
   };
 
@@ -94,10 +96,15 @@ export default function Makepage() {
             <Toggle
               key={num}
               num={num}
-              name={COMMANDS_AND_NOTES[num]?.note || "Unknown"}
               onClick={() => handleToggleClick(num)}
+              name={COMMANDS_AND_NOTES[num]?.note || "Unknown"}
             />
           ))}
+        </div>
+        <div className="nextbtndiv">
+          <button className="nextbtn" onClick={handleNextButtonClick}>
+            다음
+          </button>
         </div>
       </div>
     </div>

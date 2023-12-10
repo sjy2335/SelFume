@@ -120,6 +120,9 @@ export default function Lastpage() {
               <h3 className="nickgo">
                 {nickName}에게 향수 이름을 추천해드릴게요!
               </h3>
+              <div className="gohomediv">
+                <button className="gohome">처음으로</button>
+              </div>
             </div>
           </div>
 
@@ -128,7 +131,7 @@ export default function Lastpage() {
             <>
               <div className="lasttxtdiv">
                 <h2 className="lasttxt">
-                  생성 중입니다... 조금만 기다려주세요!
+                  생성 중입니다... <br></br>조금만 기다려주세요!
                 </h2>
               </div>
               <div className="perfumetxtdiv">

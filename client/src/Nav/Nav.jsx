@@ -15,7 +15,7 @@ export default function Nav() {
           <a href="/write" class="mainNav__link">
             Manufacture
           </a>
-          <a href="" class="mainNav__link">
+          <a href="/profile" class="mainNav__link">
             MEMBERS
           </a>
         </div>

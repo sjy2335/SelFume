@@ -134,3 +134,19 @@ div.circle p p {
     transform: translateY(0);
   }
 }
+.nextbtndiv{
+  margin-top: -18vh;
+  
+}
+.nextbtn{
+  border-radius: 20px;
+  width: 8vw;
+  height: 7vh;
+  border: 3px rgb(0,0,0,0.3) solid;
+  font-size: 20px;
+}
+
+.nextbtn:hover{
+  background-color: #f2fbfa;
+  
+}

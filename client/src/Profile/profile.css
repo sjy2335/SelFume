@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+.profilediv{
+    margin: auto 0;
+    text-align: center;
+}
+.container {
+  display: flex;
+  margin-left: 30vw ;
+  margin-top: 10vh;
+}
+.profiletitle{
+    margin-top: 20vh;
+}
+.card {
+  margin: 1rem;
+  width: 300px;
+  height: 300px;
+  padding: 0rem 0.5rem;
+  background-color: rgb(255,255,255,0.5);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px 4px rgba(black, .2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+  }
+.title {
+    color: white;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    transition: .2s;
+    cursor: pointer;
+}
+.title--legendary {
+    background-color: #606262;
+      &:hover {
+        box-shadow: 0 0 12px rgba(#f4d03f, .8);
+      }
+    }
+    
+.title--epic {
+      background-color: #606262;
+      &:hover {
+        box-shadow: 0 0 12px rgba(#8c14fc, .8);
+      }
+    }
+    
+.title--common {
+      background-color: #2ecc71;
+      &:hover {
+        box-shadow: 0 0 12px rgba(#2ecc71, .8);
+      }
+    }
+    
+
+  
+.desc {
+    text-align: center;
+  }
+  
+.actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}    
+.actions button {
+      padding: .5rem .8rem;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      text-transform: uppercase;
+      outline: 0;
+      transition: background-color .4s, color .4s, transform .1s;
+}      
+.actions button:hover {
+        color: white;
+        box-shadow: 0 0 24px rgba(black, .2);
+      }
+      
+.actions button:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 16px rgba(black, .3);
+      }
+
+    
+
+p {
+  margin-top: 1rem;
+  color: #484848;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #2574a9;
+}
+
+.active {
+  background-color: #00b16a;
+}
+
+
+
+button::-moz-focus-inner {
+  border: 0;
+}
+

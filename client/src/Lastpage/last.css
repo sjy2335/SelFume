@@ -98,3 +98,22 @@
   width: auto;
   height: 100%;
 }
+
+.gohomediv{
+  margin-top:5vh;
+  
+}
+.gohome{
+  border-radius: 20px;
+  width: 12vw;
+  height: 7vh;
+  border: 3px rgba(192, 192, 192, 0.3) solid;
+  font-size: 20px;
+  background-color: #f2fbfa;;
+}
+
+.gohome:hover{
+  background-color: #e9fffc;
+  border: 3px rgba(179, 179, 179, 0.3) solid;
+  
+}
