@@ -17,7 +17,7 @@ export default function Writepage() {
 
     try {
       const response = await axios.post(
-        "https://282a-35-185-247-39.ngrok-free.app/",
+        "https://e8f5-34-91-74-194.ngrok-free.app/predict-emotion",
         {
           sentence: story,
         }

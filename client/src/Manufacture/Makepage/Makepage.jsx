@@ -6,17 +6,17 @@ import { sendCommand } from "./sendCommand";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const COMMANDS_AND_NOTES = {
-  0: { command: "3", note: "아로마" },
+  0: { command: "3", note: "파츌리" },
   1: { command: "2", note: "머스크" },
-  2: { command: "1", note: "우디" },
+  2: { command: "1", note: "모스" },
 
-  3: { command: "6", note: "시트러스" },
-  4: { command: "5", note: "옐로우" },
-  5: { command: "4", note: "다크" },
+  3: { command: "6", note: "로즈우드" },
+  4: { command: "5", note: "블랙커런트" },
+  5: { command: "4", note: "네롤리" },
 
-  6: { command: "9", note: "플로럴" },
-  7: { command: "8", note: "레몬" },
-  8: { command: "7", note: "프루티" },
+  6: { command: "9", note: "그린티" },
+  7: { command: "8", note: "버베나" },
+  8: { command: "7", note: "블랙베리" },
 };
 
 export default function Makepage() {
@@ -33,20 +33,16 @@ export default function Makepage() {
   const [isFadingIn, setIsFadingIn] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
-  const handleToggleClick =  async (clickedNum) => {
+  const handleToggleClick = async (clickedNum) => {
     const command = COMMANDS_AND_NOTES[clickedNum]?.command;
     const note = COMMANDS_AND_NOTES[clickedNum]?.note;
 
     if (command) {
       const success = true;
       await sendCommand(command);
-      
-      
 
       setSelectedNotes((prevNotes) => {
         const newNotes = [...prevNotes, note];
-
-        
 
         return newNotes;
       });
@@ -63,7 +59,6 @@ export default function Makepage() {
     await new Promise((resolve) => setTimeout(resolve, 500));
     setIsFadingIn(false);
     if (pageTitle === "Base") {
-      
       setPageTitle("Mid");
       setToggleNums([3, 4, 5]);
     } else if (pageTitle === "Mid") {

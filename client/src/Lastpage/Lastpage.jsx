@@ -4,14 +4,15 @@ import Nav from "../Nav/Nav";
 //import Load from "./loading.gif";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-
+import { sendCommand } from "./sendCommand";
+import { useNavigate } from "react-router-dom";
 const api_key = process.env.REACT_APP_OPENAI_API_KEY; // <- API KEY 입력
 
 export default function Lastpage() {
   const [loading, setLoading] = useState(false);
   const [responseText, setResponseText] = useState("");
   const [showResponse, setShowResponse] = useState(false);
-
+  const navigate = useNavigate();
   const { state } = useLocation();
 
   const nickName = state ? state.nickName : null;
@@ -20,6 +21,13 @@ export default function Lastpage() {
   const selectedNotes = state ? state.selectedNotes : ["", "", ""]; // Default to empty strings if not provided
 
   const [baseNote, middleNote, topNote] = selectedNotes;
+  const goHome = async () => {
+    const command = "0";
+
+    await sendCommand(command); // Assuming sendCommand sends the command to the backend
+    navigate("/");
+    // Add any additional logic if needed, e.g., navigating to a different page
+  };
 
   console.log("마지막 페이지 : ", { nickName }, { story });
 
@@ -121,7 +129,9 @@ export default function Lastpage() {
                 {nickName}에게 향수 이름을 추천해드릴게요!
               </h3>
               <div className="gohomediv">
-                <button className="gohome">처음으로</button>
+                <button className="gohome" onClick={goHome}>
+                  처음으로
+                </button>
               </div>
             </div>
           </div>

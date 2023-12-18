@@ -22,27 +22,27 @@ export default function Resultpage() {
     },
     분노: {
       ment: "분노를 가라앉힐 수 있는",
-      base: "아로마 base B",
+      base: "모스",
       img: "https://cdn1.iconfinder.com/data/icons/emojis-3d-classic/512/fury.png", // Replace with actual file name
     },
     상처: {
       ment: "마음의 상처를 치유하는 데 도움이 되는",
-      base: "아로마 base C",
+      base: "모스",
       img: "https://cdn2.iconfinder.com/data/icons/3d-emoji-1/512/Emoji___emoticon_emoji_sticker_face_bored_speechless_right2x.png", // Replace with actual file name
     },
     슬픔: {
       ment: "슬픔을 달래줄 위로의",
-      base: "아로마 base D",
+      base: "파츌리",
       img: "https://cdn2.iconfinder.com/data/icons/3d-emoji-1/512/Emoji___emoticon_emoji_sticker_face_sad_unhappy_cry_center2x.png", // Replace with actual file name
     },
     당황: {
-      ment: "당황스러운 상황을 잘 처리할 수 있는",
-      base: "아로마 base E",
+      ment: "당황스러운 상황을 잘 처리할 수 있는 분위기의",
+      base: "머스크",
       img: "https://cdn2.iconfinder.com/data/icons/3d-emoji-1/512/Emoji___emoticon_emoji_sticker_face_embarressed_kidding_laugh_left2x.png", // Replace with actual file name
     },
     기쁨: {
       ment: "기쁨을 더욱 배가시킬 수 있는 긍정적인",
-      base: "아로마 base F",
+      base: "머스크",
       img: "https://cdn1.iconfinder.com/data/icons/emojis-3d-classic/512/happy.png", // Replace with actual file name
     },
   };
