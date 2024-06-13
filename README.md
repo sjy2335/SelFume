@@ -1,5 +1,5 @@
 # SelFume
-### 2023-2 Physical Computing Final Project ( + 2023 사범대학 AI 교육 캡스톤 디자인 경진대회 금상 수상 🥇 )
+### 2023-2 Physical Computing Final Project ( + 캡스톤 디자인 경진대회 금상 상장 🥇 )
 
 <center>
 
