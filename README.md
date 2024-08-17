@@ -1,5 +1,5 @@
 # SelFume
-### 2023-2 Physical Computing Final Project ( + 캡스톤 디자인 경진대회 금상 상장 🥇 )
+### 2023-2 Physical Computing Final Project 🏅
 
 <center>
 
